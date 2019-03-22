@@ -1,21 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material'
+import { MatButtonModule, MatGridListModule, MatCardModule, MatDividerModule } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostsDetailsComponent } from './posts-details/posts-details.component';
+import { PostsService } from './posts/posts.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
+import { SearchComponent } from './search/search.component';
+
+
+const routes: Routes = [
+  {path : '', component: PostsComponent},
+  {path : 'search', component: SearchComponent},
+  {path : 'post/:id', component : PostsDetailsComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    PostsDetailsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    HttpClientModule,
+    MatCardModule,
+    MatDividerModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

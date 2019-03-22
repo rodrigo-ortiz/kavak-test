@@ -1,0 +1,14 @@
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="jumbotron">
+        <h1 class="display-5" >{{(aPost$|async).title|titlecase}}</h1> 
+        <hr class="my-4"/>
+        <div class="lead">
+          {{(aPost$|async).body}}
+        </div>
+      </div>
+      <button class="btn btn-dark" (click)="goBack()" >Regresar</button>
+    </div>
+  </div>
+  

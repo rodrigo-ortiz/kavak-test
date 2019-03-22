@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from './posts.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-posts',
@@ -6,17 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  title = "Mis Posts"
-
-  users = [
-    {id:1, name: 'Roni'},
-    {id:2, name: 'Elias'},
-    {id:3, name: 'Susana'}
-  ]
   
-  constructor() { }
+  private sUrlPosts = 'https://jsonplaceholder.typicode.com/posts'
+  public aPosts$: Observable<any> = null
+  
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
+    this.getPosts()
+  }
+
+  getPosts(){
+    this.aPosts$ = this.httpClient.get(this.sUrlPosts)
   }
 
 }
