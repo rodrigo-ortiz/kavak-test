@@ -1,0 +1,19 @@
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="jumbotron">
+        <h1 class="display-5" >Busca un Post</h1> 
+        <hr class="my-4"/>
+        <div class="lead">
+          Ingresa tu Busqueda
+        </div>
+
+        <form  class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" #sKeyword  type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary my-2 my-sm-0" (click)="onSubmit(sKeyword.value)" type="button">Buscar</button>
+          </form>
+      </div>
+      <button class="btn btn-dark" (click)="goBack()" >Regresar</button>
+    </div>
+  </div>
+  

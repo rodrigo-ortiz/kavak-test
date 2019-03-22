@@ -1,17 +1,16 @@
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="jumbotron">
-        <h1 class="display-5" >Buscar</h1> 
-        <hr class="my-4"/>
-        <div class="lead">
-          Busca tu Posts
+  <div class="col-md-6">
+
+    <h3>Resultados para la palabra :<span class="text-danger"> {{sKeyword}} </span></h3>
+    <div *ngFor="let posts of (aPosts2$|async)">
+      <div *ngIf="posts.posts != null">
+        <div class="card">
+          <header class="card-header">
+            <h4>{{posts.posts.title}}</h4>
+          </header>
         </div>
-          <input class="form-control" #keyword placeholder="Ingresa tu Busqueda" />
-          <button (onclick)="onSubmit($event)" class="btn btn-info" >Buscar</button>
-        
       </div>
-      
     </div>
   </div>
-  
+</div>

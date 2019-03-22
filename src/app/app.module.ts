@@ -9,11 +9,13 @@ import { PostsService } from './posts/posts.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
+import { FrmsearchComponent } from './frmsearch/frmsearch.component';
 
 
 const routes: Routes = [
   {path : '', component: PostsComponent},
-  {path : 'search', component: SearchComponent},
+  {path : 'search/:keyword', component: SearchComponent},
+  {path : 'frmsearch', component: FrmsearchComponent},
   {path : 'post/:id', component : PostsDetailsComponent}
 ]
 
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     PostsComponent,
     PostsDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    FrmsearchComponent
   ],
   imports: [
     BrowserModule,
